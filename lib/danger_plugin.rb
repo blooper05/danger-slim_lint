@@ -1,1 +1,1 @@
-require "slim_lint/plugin"
+require 'slim_lint/plugin'

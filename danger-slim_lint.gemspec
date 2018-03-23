@@ -1,5 +1,5 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'slim_lint/gem_version.rb'
 
@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SlimLint::VERSION
   spec.authors       = ['blooper05']
   spec.email         = ['legend.of.blooper@gmail.com']
-  spec.description   = %q{A short description of danger-slim_lint.}
-  spec.summary       = %q{A longer description of danger-slim_lint.}
+  spec.description   = 'A short description of danger-slim_lint.'
+  spec.summary       = 'A longer description of danger-slim_lint.'
   spec.homepage      = 'https://github.com/blooper05/danger-slim_lint'
   spec.license       = 'MIT'
 
@@ -28,8 +28,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.4'
 
   # Linting code and docs
-  spec.add_development_dependency "rubocop"
-  spec.add_development_dependency "yard"
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'yard'
 
   # Makes testing easy via `bundle exec guard`
   spec.add_development_dependency 'guard', '~> 2.14'
