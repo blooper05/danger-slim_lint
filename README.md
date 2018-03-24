@@ -15,8 +15,20 @@ A description of danger-slim_lint.
 
 ## Usage
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `slim_lint` namespace.
+### slim_lint
+
+Lints Slim files via [slim-lint](https://rubygems.org/gems/slim_lint).
+Results are sent as inline comments.
+
+<blockquote>Running slim-lint
+  <pre>
+# Runs slim-lint on modified and added files in the PR
+slim_lint.lint</pre>
+</blockquote>
+
+#### Methods
+
+`lint` - Runs Slim files through slim-lint.
 
 ## Development
 
