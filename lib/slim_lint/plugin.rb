@@ -1,3 +1,5 @@
+require 'slim_lint'
+
 module Danger
   # This is your plugin class. Any attributes or methods you expose here will
   # be available from within your Dangerfile.
@@ -17,16 +19,37 @@ module Danger
   # @tags monday, weekends, time, rattata
   #
   class DangerSlimLint < Plugin
-    # An attribute that you can read/write from your Dangerfile
-    #
-    # @return   [Array<String>]
-    attr_accessor :my_attribute
-
     # A method that you can call from your Dangerfile
     # @return   [Array<String>]
     #
-    def warn_on_mondays
-      warn 'Trying to merge code on a Monday' if Date.today.wday == 1
+    def lint
+      files_to_lint = fetch_files_to_lint
+      lint_errors   = run_linter(files_to_lint)
+      warn_each_line(lint_errors)
+    end
+
+    private
+
+    def run_linter(files_to_lint)
+      runner = ::SlimLint::Runner.new
+      runner.run(files: files_to_lint).lints
+    end
+
+    def fetch_files_to_lint
+      files = git.modified_files + git.added_files
+      files.select do |file|
+        ::SlimLint::FileFinder::VALID_EXTENSIONS.include?(File.extname(file))
+      end
+    end
+
+    def warn_each_line(lint_errors)
+      current_dir = "#{Dir.pwd}/"
+      lint_errors.each do |error|
+        message = error.message
+        file    = error.filename.sub(current_dir, '')
+        line    = error.line
+        warn(message, file: file, line: line)
+      end
     end
   end
 end
