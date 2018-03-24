@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SlimLint::VERSION
   spec.authors       = ['blooper05']
   spec.email         = ['legend.of.blooper@gmail.com']
-  spec.description   = 'A short description of danger-slim_lint.'
-  spec.summary       = 'A longer description of danger-slim_lint.'
+  spec.description   = 'A Danger plugin to lint Ruby files through slim-lint.'
+  spec.summary       = 'A Danger plugin to lint Ruby files through slim-lint.'
   spec.homepage      = 'https://github.com/blooper05/danger-slim_lint'
   spec.license       = 'MIT'
 
