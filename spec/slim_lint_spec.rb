@@ -6,34 +6,72 @@ module Danger
       expect(Danger::DangerSlimLint.new(nil)).to be_a Danger::Plugin
     end
 
-    #
-    # You should test your custom attributes and methods here
-    #
     describe 'with Dangerfile' do
-      before do
-        @dangerfile = testing_dangerfile
-        @my_plugin = @dangerfile.slim_lint
-      end
+      let(:dangerfile) { testing_dangerfile }
+      let(:slim_lint)  { dangerfile.slim_lint }
 
-      # Some examples for writing tests
-      # You should replace these with your own.
+      describe '#lint' do
+        subject { slim_lint.lint }
 
-      it 'Warns on a monday' do
-        monday_date = Date.parse('2016-07-11')
-        allow(Date).to receive(:today).and_return monday_date
+        before { stubbings }
+        before { subject }
 
-        @my_plugin.warn_on_mondays
+        let(:changed_files) do
+          git = slim_lint.git
+          expect(git).to receive(:modified_files).and_return(modified_files)
+          expect(git).to receive(:added_files).and_return(added_files)
+        end
 
-        expect(@dangerfile.status_report[:warnings]).to eq(['Trying to merge code on a Monday'])
-      end
+        let(:status_reports)    { dangerfile.status_report[:warnings] }
+        let(:violation_reports) { dangerfile.violation_report[:warnings] }
 
-      it 'Does nothing on a tuesday' do
-        monday_date = Date.parse('2016-07-12')
-        allow(Date).to receive(:today).and_return monday_date
+        context 'with changed files' do
+          let(:modified_files) { %w(spec/fixtures/modified_file.slim) }
+          let(:added_files)    { %w(spec/fixtures/added_file.slim) }
 
-        @my_plugin.warn_on_mondays
+          context 'with lint errors' do
+            let(:stubbings) { changed_files && lint_errors }
 
-        expect(@dangerfile.status_report[:warnings]).to eq([])
+            let(:lint_errors) do
+              linter = ::SlimLint::Report
+              errors = [double('Lint Errors', message:  error_message,
+                                              filename: filename,
+                                              line:     line)]
+              expect_any_instance_of(linter).to receive(:lints)
+                .and_return(errors)
+            end
+
+            let(:error_message) { 'error message' }
+            let(:filename)      { "#{Dir.pwd}/path/to/file" }
+            let(:line)          { 123 }
+
+            it 'returns warning reports' do
+              violation = Violation.new(error_message, false, 'path/to/file', 123)
+              expect(status_reports).to eq([error_message])
+              expect(violation_reports).to eq([violation])
+            end
+          end
+
+          context 'with no lint errors' do
+            let(:stubbings) { changed_files }
+
+            it 'returns no warning reports' do
+              expect(status_reports).to be_empty
+              expect(violation_reports).to be_empty
+            end
+          end
+        end
+
+        context 'with no changed files' do
+          let(:stubbings)      { changed_files }
+          let(:modified_files) { [] }
+          let(:added_files)    { [] }
+
+          it 'returns no warning reports' do
+            expect(status_reports).to be_empty
+            expect(violation_reports).to be_empty
+          end
+        end
       end
     end
   end
