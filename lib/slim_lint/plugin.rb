@@ -1,27 +1,19 @@
 require 'slim_lint'
 
 module Danger
-  # This is your plugin class. Any attributes or methods you expose here will
-  # be available from within your Dangerfile.
+  # Lints Slim files via [slim-lint](https://rubygems.org/gems/slim_lint).
+  # Results are sent as inline comments.
   #
-  # To be published on the Danger plugins site, you will need to have
-  # the public interface documented. Danger uses [YARD](http://yardoc.org/)
-  # for generating documentation from your plugin source, and you can verify
-  # by running `danger plugins lint` or `bundle exec rake spec`.
+  # @example Running slim-lint
   #
-  # You should replace these comments with a public description of your library.
-  #
-  # @example Ensure people are well warned about merging on Mondays
-  #
-  #          my_plugin.warn_on_mondays
+  #          # Runs slim-lint on modified and added files in the PR
+  #          slim_lint.lint
   #
   # @see  blooper05/danger-slim_lint
-  # @tags monday, weekends, time, rattata
-  #
+  # @tags slim, ruby, slim-lint, lint
   class DangerSlimLint < Plugin
-    # A method that you can call from your Dangerfile
-    # @return   [Array<String>]
-    #
+    # Runs Slim files through slim-lint.
+    # @return [Array<SlimLint::Lint, nil>]
     def lint
       files_to_lint = fetch_files_to_lint
       lint_errors   = run_linter(files_to_lint)
