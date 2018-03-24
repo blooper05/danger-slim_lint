@@ -7,7 +7,7 @@
 [![Gem Version](https://img.shields.io/gem/v/danger-slim_lint.svg?longCache=true&style=flat)](https://rubygems.org/gems/danger-slim_lint)
 [![License](https://img.shields.io/github/license/blooper05/danger-slim_lint.svg?longCache=true&style=flat)](https://github.com/blooper05/danger-slim_lint/blob/master/LICENSE)
 
-A description of danger-slim_lint.
+A [Danger](https://rubygems.org/gems/danger) plugin for [slim-lint](https://rubygems.org/gems/slim_lint).
 
 ## Installation
 
