@@ -1,5 +1,17 @@
 # Change Log
 
+## [Unreleased](https://github.com/blooper05/danger-slim_lint/tree/HEAD)
+
+[Full Changelog](https://github.com/blooper05/danger-slim_lint/compare/v0.1.1...HEAD)
+
+**Merged pull requests:**
+
+- 💚 CI against latest Ruby versions [\#6](https://github.com/blooper05/danger-slim_lint/pull/6) ([blooper05](https://github.com/blooper05))
+- 📝 Change badges from Shields.io to Badgen [\#5](https://github.com/blooper05/danger-slim_lint/pull/5) ([blooper05](https://github.com/blooper05))
+- 💚 CI against latest Ruby versions [\#4](https://github.com/blooper05/danger-slim_lint/pull/4) ([blooper05](https://github.com/blooper05))
+- Update listen requirement to = 3.1.5 [\#3](https://github.com/blooper05/danger-slim_lint/pull/3) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Update rake requirement to ~\> 12.3 [\#2](https://github.com/blooper05/danger-slim_lint/pull/2) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v0.1.1](https://github.com/blooper05/danger-slim_lint/tree/v0.1.1) (2018-03-24)
 [Full Changelog](https://github.com/blooper05/danger-slim_lint/compare/v0.1.0...v0.1.1)
 
