@@ -1,11 +1,13 @@
 # Change Log
 
-## [Unreleased](https://github.com/blooper05/danger-slim_lint/tree/HEAD)
-
-[Full Changelog](https://github.com/blooper05/danger-slim_lint/compare/v0.1.1...HEAD)
+## [v0.1.2](https://github.com/blooper05/danger-slim_lint/tree/v0.1.2) (2019-02-05)
+[Full Changelog](https://github.com/blooper05/danger-slim_lint/compare/v0.1.1...v0.1.2)
 
 **Merged pull requests:**
 
+- 💚 Manage the settings of Dependabot as a file [\#10](https://github.com/blooper05/danger-slim_lint/pull/10) ([blooper05](https://github.com/blooper05))
+- 💚 CI against latest Ruby versions [\#9](https://github.com/blooper05/danger-slim_lint/pull/9) ([blooper05](https://github.com/blooper05))
+- ⬆️ Update bundler requirement to \>= 1.3, \< 3 [\#8](https://github.com/blooper05/danger-slim_lint/pull/8) ([blooper05](https://github.com/blooper05))
 - 💚 CI against latest Ruby versions [\#6](https://github.com/blooper05/danger-slim_lint/pull/6) ([blooper05](https://github.com/blooper05))
 - 📝 Change badges from Shields.io to Badgen [\#5](https://github.com/blooper05/danger-slim_lint/pull/5) ([blooper05](https://github.com/blooper05))
 - 💚 CI against latest Ruby versions [\#4](https://github.com/blooper05/danger-slim_lint/pull/4) ([blooper05](https://github.com/blooper05))
