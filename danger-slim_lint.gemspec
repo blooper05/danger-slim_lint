@@ -1,4 +1,5 @@
 lib = File.expand_path('lib', __dir__)
+
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'slim_lint/gem_version.rb'
 
@@ -21,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'slim_lint', '~> 0.11'
 
   # General ruby development
-  spec.add_development_dependency 'bundler', '~> 1.3'
+  spec.add_development_dependency 'bundler', '>= 1.3', '< 3'
   spec.add_development_dependency 'rake', '~> 12.3'
 
   # Testing support
