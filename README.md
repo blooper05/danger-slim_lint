@@ -1,7 +1,7 @@
 # danger-slim_lint
 
 [![Build Status](https://badgen.net/travis/blooper05/danger-slim_lint?icon=travis)](https://travis-ci.com/blooper05/danger-slim_lint)
-[![Dependency Status](https://api.dependabot.com/badges/status?host=github&repo=blooper05/danger-slim_lint)](https://dependabot.com)
+[![Dependency Status](https://badgen.net/dependabot/blooper05/danger-slim_lint?icon=dependabot)](https://dependabot.com)
 [![Maintainability](https://badgen.net/codeclimate/maintainability/blooper05/danger-slim_lint?icon=codeclimate)](https://codeclimate.com/github/blooper05/danger-slim_lint)
 [![Coverage](https://badgen.net/codeclimate/coverage/blooper05/danger-slim_lint?icon=codeclimate)](https://codeclimate.com/github/blooper05/danger-slim_lint)
 [![Version](https://badgen.net/rubygems/v/danger-slim_lint?icon=ruby)](https://rubygems.org/gems/danger-slim_lint)
